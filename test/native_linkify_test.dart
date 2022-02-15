@@ -18,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await NativeLinkify.findLinks('42'), '42');
+    expect(await NativeLinkify.linkify('42'), '42');
   });
 }

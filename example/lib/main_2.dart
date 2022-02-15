@@ -1,20 +1,4 @@
-<p>
-<a href="https://github.com/festelo/native_linkify/actions"><img src="https://github.com/festelo/native_linkify/actions/workflows/tests.yml/badge.svg" alt="Build & Test"></a>
-<a href="https://codecov.io/gh/festelo/native_linkify"><img src="https://codecov.io/gh/festelo/native_linkify/branch/master/graph/badge.svg" alt="codecov"></a>
-<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache 2.0"></a>
-</p>
-
-# Flutter's Native Linkify
-![Example screenshot](resources/screenshot.png)
-
-`native_linkify` is a Flutter plugin. Use it to find links in plain-text. 
-
-The plugin uses [NSDataDetector](https://developer.apple.com/documentation/foundation/nsdatadetector) for iOS and macOS; [Linkify](https://developer.android.com/reference/android/text/util/Linkify) for Android. This means the plugin finds links in the same way most native apps do, giving much more accurate results than existing pure dart packages.
-
-This plugin doesn't have any widgets to show inline links out of the box, but it has everything you need to create them in a way you like.
-
-Here's example which shows how to implement widget that's turns text URLs, E-Mails and phones into clickable links:
-```dart
+// Example from readme file
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -72,4 +56,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-```
