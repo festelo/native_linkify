@@ -5,10 +5,10 @@ import android.text.style.URLSpan
 import android.text.util.Linkify
 
 interface NativeLinkifyBridge {
-    fun findLinks(text: String): List<LinkifyDTO>
+    fun findLinks(text: String): List<LinkifyDto>
 }
 
-data class LinkifyDTO(val startIndex: Int, val endIndex: Int, val url: String) {
+data class LinkifyDto(val startIndex: Int, val endIndex: Int, val url: String) {
     fun toMap(): Map<String, Any> {
         return mapOf(
             "startIndex" to startIndex,
@@ -19,7 +19,7 @@ data class LinkifyDTO(val startIndex: Int, val endIndex: Int, val url: String) {
 }
 
 class AndroidLinkifyBridge : NativeLinkifyBridge {
-    override fun findLinks(text: String): List<LinkifyDTO> {
+    override fun findLinks(text: String): List<LinkifyDto> {
         val spannableStringBuilder = SpannableStringBuilder(text)
         Linkify.addLinks(
             spannableStringBuilder,
@@ -27,10 +27,10 @@ class AndroidLinkifyBridge : NativeLinkifyBridge {
         )
 
         val spans = spannableStringBuilder.getSpans(0, text.length, URLSpan::class.java)
-        val res = mutableListOf<LinkifyDTO>()
+        val res = mutableListOf<LinkifyDto>()
         for (span in spans) {
             res.add(
-                LinkifyDTO(
+                LinkifyDto(
                     spannableStringBuilder.getSpanStart(span),
                     spannableStringBuilder.getSpanEnd(span),
                     span.url

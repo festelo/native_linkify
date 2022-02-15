@@ -1,12 +1,12 @@
-import Flutter
-import UIKit
+import Cocoa
+import FlutterMacOS
 
-public class SwiftNativeLinkifyPlugin: NSObject, FlutterPlugin {
+public class NativeLinkifyPlugin: NSObject, FlutterPlugin {
     let bridge = AppleLinkifyBridge()
     
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "native_linkify", binaryMessenger: registrar.messenger())
-        let instance = SwiftNativeLinkifyPlugin()
+        let channel = FlutterMethodChannel(name: "native_linkify", binaryMessenger: registrar.messenger)
+        let instance = NativeLinkifyPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     
